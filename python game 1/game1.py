@@ -14,6 +14,8 @@ except:
     import numpy as np
 import random
 
+TIME = 0
+
 Width, Height = 900, 500
 win = pygame.display.set_mode((Width, Height))
 #above is window items and imports/below is death screen
@@ -28,6 +30,9 @@ def death():
     win.fill((0, 100, 250))
     run = True
     clock = pygame.time.Clock()
+    THIME = str(TIME)
+    text = 'You survived ' + THIME + ' Seconds'
+    font = pygame.font.SysFont('Consolas', 30)
     while run:
         clock.tick(20)
         for event in pygame.event.get():
@@ -47,16 +52,15 @@ def death():
                         retry()
         win.blit(retry_img, (retry_rect.x, retry_rect.y))
         win.blit(quit_img, (quit_rect.x, quit_rect.y))
+        win.blit(font.render(text, True, (0,0,0)), (Width/2 - 200, Height/2 - 100))
         pygame.display.update()
     
 def retry():
     win.fill((0, 100, 250))
     pygame.display.update()
     while len(objects_rect) > 0:
-        print (objects_rect)
         objects_rect.pop()
     while len(objects_surf) > 0:
-        print (objects_surf)
         objects_surf.pop()
     game()
 #below is game, above is death screen
@@ -181,6 +185,7 @@ def game():
                     pal.y -= vel
 
         draw_win(pal, text)
+    TIME = time
     death()
     
 ## above this line is gameplay, below is menu
