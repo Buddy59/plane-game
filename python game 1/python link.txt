@@ -1,0 +1,2 @@
+ https://www.python.org/downloads/
+ make sure the version is python 3, ex. python 3.9.4
