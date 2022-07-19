@@ -88,7 +88,7 @@ def clouds ():
     if i == 2:
         cloud = pygame.transform.scale(pygame.image.load("clouds/cloud_2.png"), (400, 200))
     if i == 3:
-        cloud = pygame.transform.scale(pygame.image.load("clouds/ cloud_3.png"), (400, 200))
+        cloud = pygame.transform.scale(pygame.image.load("clouds/cloud_3.png"), (400, 200))
     
     x = Width
     y = random.randint(0, Height - cloud.get_height())
